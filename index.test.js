@@ -1,5 +1,5 @@
 
-const { map, filter } = require('./index');
+const { map, filter, findIndex } = require('./index');
 
 
 describe('array methods tests', () => {
@@ -20,7 +20,6 @@ describe('array methods tests', () => {
   it('returns a filtered array', () => {
     const array = [1, 2, 3];
     const filtered = filter(array, number => number % 2 === 0);
-    console.log('filtered', filtered);
     expect(filtered).toEqual(expect.any(Array));
   });
 
@@ -29,6 +28,15 @@ describe('array methods tests', () => {
     const evens = filter(
       array, number => number % 2 === 0);
     expect(evens).toEqual([2, 4]);
+  });
+
+  it('returns an number using find number', () => {
+    const array = ['red', 'green', 'blue', 'yellow'];
+    const foundIndex = findIndex(array, color => color === 'blue');
+    expect(foundIndex).toEqual(2);
+
+
+
   });
   
 });
