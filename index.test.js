@@ -1,5 +1,5 @@
 
-const { map, filter, findIndex } = require('./index');
+const { map, filter, findIndex, reduce } = require('./index');
 
 
 describe('array methods tests', () => {
@@ -30,13 +30,34 @@ describe('array methods tests', () => {
     expect(evens).toEqual([2, 4]);
   });
 
-  it('returns an number using find number', () => {
+  it('returns an number using findIndex', () => {
     const array = ['red', 'green', 'blue', 'yellow'];
     const foundIndex = findIndex(array, color => color === 'blue');
     expect(foundIndex).toEqual(2);
+  });
 
+  it('iterates through an array and invokes the callback', () => {
+    const numbers = [1, 2, 3];
+    const callback = jest.fn();
 
+    reduce(numbers, callback, 0);
 
+    expect(callback).toHaveBeenCalledTimes(numbers.length);
   });
   
+  it('iterates through an array and updates the acc with with results of callback', () => {
+    const numbers = [1, 2, 3];
+    const sum = reduce(numbers, (acc, item) => acc + item, 0);
+    expect(sum).toEqual(6);
+  });
+
+  it('iterates through an array and updates the acc with with results of callback', () => {
+    const numbers = [1, 2, 3];
+    const sum = reduce(numbers, (acc, item) => acc + item, 0);
+    expect(sum).toEqual(6);
+  });
+
+  
+
+
 });

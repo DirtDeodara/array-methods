@@ -21,14 +21,25 @@ function filter(arr, callback) {
 
 const findIndex = (arr, callback) => {
   for(let i = 0; i < arr.length; i++) {
-    if(callback(arr[i]) === true) {
-      return i;
-    } 
+    if(callback(arr[i])) return i; 
   }
   return -1;
 };
 
+const reduce = (arr, callback, initialValue) => {
+  let acc = initialValue;
+  let i = 0;
+  if(initialValue === undefined) {
+    acc = arr[0];
+    i = 1;
+  }
+  for(i; i < arr.length; i++) {
+    acc = callback(acc, arr[i]);
+  }
+  return acc;
+};
 
-module.exports = { map, filter, findIndex };
+
+module.exports = { map, filter, findIndex, reduce };
 
 
