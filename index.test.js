@@ -1,19 +1,23 @@
 
-const map = require('./index');
+const { map, filter } = require('./index');
 
 
-
-// const array = ['hammer', 'nail', 'screwdriver', 'screw'];
-
-describe('array function tests', () => {
-  it('tests map function', () => {
-    const array = ['hammer', 'nail', 'screwdriver', 'screw'];
-    const callback = (item) => { 
-      return item; 
-    };
-    const mapper = map(array, callback);
-    expect(mapper).toEqual(array);
+describe('array methods tests', () => {
+  
+  it('returns a mapped array', () => {
+    const array = [1, 2, 3];
+    const mapped = map(array, number => number * 2);
+    expect(mapped).toEqual(expect.any(Array));
 
   });
 
+
+  it('returns an array', () => {
+    
+    const array = ['red', 'green', 'blue', 'yellow'];
+    const filtered = filter(array, color => color.includes('l'));
+    expect(filtered).toEqual(expect.any(Array));
+  });
+
+  
 });

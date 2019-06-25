@@ -8,4 +8,13 @@ const map = (arr, callback) => {
   return mapped;
 };
 
-module.exports = map;
+
+function filter(arr, callback) {
+  const filtered = [];
+  return filtered;
+}
+
+
+module.exports = { map, filter };
+
+
